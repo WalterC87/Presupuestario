@@ -8,5 +8,10 @@ class PresupuestosAdmin(admin.ModelAdmin):
 class ProveedoresAdmin(admin.ModelAdmin):
 	list_display = ('razonsocial','cuit','direccion','tel_fijo','email')	
 
+class PlanDeCuentasAdmin(admin.ModelAdmin):
+	list_display = ('nombrecuenta','cuentapadre','monto','presupuesto')	
+	
+
 admin.site.register(Presupuestos,PresupuestosAdmin)
 admin.site.register(Proveedores,ProveedoresAdmin)
+admin.site.register(PlanDeCuentas,PlanDeCuentasAdmin)

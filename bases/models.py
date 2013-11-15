@@ -8,12 +8,12 @@ class Presupuestos(models.Model):
 
 class PlanDeCuentas(models.Model):
 	nombrecuenta = models.CharField(max_length=180)
-	cuentapadre = models.IntegerField(null=True)
+	cuentapadre = models.ForeignKey('self')
 	monto = models.FloatField()
 	presupuesto = models.ForeignKey(Presupuestos)
-	thumb = models.ImageField(upload_to='/static/')
+	thumb = models.ImageField(upload_to = '')
 
-class Proveedores(models.Model):
+class Proveedores(models.Model)
 	razonsocial = models.CharField(max_length=140, null=False, blank=False)
 	cuit = models.CharField(max_length=11, null=False, blank=False)
 	direccion = models.CharField(max_length=140, null=False, blank=False )
