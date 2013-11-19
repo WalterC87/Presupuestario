@@ -5,6 +5,12 @@ PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+#importo unipath para crear la ruta del proyecto
+# con ancestor me vuelvo 2 niveles para llegar a la raiz
+# desde la ubicacion que estoy
+from unipath import Path
+RUTA_PROYECTO = Path(__file__).ancestor(2)
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -111,6 +117,9 @@ ROOT_URLCONF = 'presupuestario.urls'
 WSGI_APPLICATION = 'presupuestario.wsgi.application'
 
 TEMPLATE_DIRS = (
+    # Indico que tiene una folder Templates en la raiz->templates    
+    RUTA_PROYECTO.child('templates'),
+
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

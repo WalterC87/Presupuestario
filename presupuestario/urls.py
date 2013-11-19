@@ -4,8 +4,10 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from bases.views import login, index2
+
 urlpatterns = patterns('',
-    # Examples:
+	# Examples:
     # url(r'^$', 'presupuestario.views.home', name='home'),
     # url(r'^presupuestario/', include('presupuestario.foo.urls')),
 
@@ -14,4 +16,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', login.as_view()),
+    url(r'^index2/$', index2.as_view()),
+    #url(r'^$', include(bases.urls)),
+    
 )
