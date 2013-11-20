@@ -4,7 +4,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-from bases.views import login, index2
+from bases.views import login
 
 urlpatterns = patterns('',
 	# Examples:
