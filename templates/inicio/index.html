@@ -1,20 +1,39 @@
 {% extends "base.html" %}
-
 {% block title %}
 Presupuestario HCD - Login de Acceso
 {% endblock %}
+
+{% block headbase %}
+	<link rel="stylesheet" href="/static/loginweb.css">
+	<script src="/static/loginwebmain.js"></script>
+{% endblock %}	
 
 {% block content %}
 	{% if user.is_authenticated %}
 		Bienvenido {{user.username}}
 		<a href="/cerrar/">Cerrar Sesión</a>
 	{% else %}
-
-		<h1>Inicio de Sesión de Usuario</h1>
-		<form method="POST">{% csrf_token %}
-			<input type="text" name="username" placeholder="Usuario">
-			<input type="password" name="password" placeholder="Contraseña" >
-			<button type="submit">Ingresar</button>
-		</form>
+		<div class="container">
+        	<div class="flat-form">
+	            <div id="login" class="form-action show">
+	                <h1>Acceso Usuario</h1>
+	                <p>Texto introductorio al sistema o login</p>
+	                <form method="POST">{% csrf_token %}
+	                    <ul>
+	                        <li>
+	                            <input type="text" name="username" placeholder="Usuario" />
+	                        </li>
+	                        <li>
+	                            <input type="password" name="password" placeholder="Password" />
+	                        </li>
+	                        <li>
+	                            <input type="submit" value="Entrar" class="button" />
+	                        </li>
+	                    </ul>
+	                </form>
+	            </div>
+            </div>
+    	</div>
+    	<script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 	{% endif%}
 {% endblock %}
