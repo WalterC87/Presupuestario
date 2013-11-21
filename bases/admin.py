@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from django.contrib import admin
 from models import Presupuestos, PlanDeCuentas, Proveedores
 
@@ -9,7 +10,7 @@ class ProveedoresAdmin(admin.ModelAdmin):
 	list_display = ('razonsocial','cuit','direccion','tel_fijo','email')	
 
 class PlanDeCuentasAdmin(admin.ModelAdmin):
-	list_display = ('nombrecuenta','cuentapadre','monto','presupuesto')	
+	list_display = ('nombrecuenta','codigo','cuentapadre','monto','presupuesto')	
 	
 
 admin.site.register(Presupuestos,PresupuestosAdmin)
