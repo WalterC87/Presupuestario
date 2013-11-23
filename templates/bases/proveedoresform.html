@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+Presupuestario HCD - Nuevo Proveedor
+{% endblock %}
+
+{% block content %}
+
+<p>Agregando un Proveedor</p>
+<form method="post">
+	{% csrf_token %}
+	<div id="form">
+    	{{form.as_p}}
+    	<input type="submit">
+	</div>
+</form>	
+
+{% endblock %}
