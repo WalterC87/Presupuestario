@@ -5,6 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from bases.views import login
+from circuitos.views import addreserva
 
 urlpatterns = patterns('',
 	# Examples:
@@ -22,4 +23,5 @@ urlpatterns = patterns('',
     #RUTAS a las APP para ABM
     url(r'^addproveedor/$', 'bases.views.addproveedor', name='addproveedor'),
     url(r'^addcuenta/$', 'bases.views.addcuenta', name='addcuenta'),
+    url(r'^addreserva/$', 'circuitos.views.addreserva', name='addreserva'),
 )
