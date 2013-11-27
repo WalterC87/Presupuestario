@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'bases',
     'inicio',
+    'circuitos',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
