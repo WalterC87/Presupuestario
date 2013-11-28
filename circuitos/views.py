@@ -5,7 +5,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .forms import ReservaForm, OrdenPagoForm
 from bases.models import PlanDeCuentas
 from django.template.context import RequestContext
-#decorador para solicitar el login en cada accion
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -30,6 +29,8 @@ def addordenpago(request):
         if form.is_valid():
             orden = form.save(commit = False)
             orden.usuario = request.user
+            #busco la cta afectada en la OrdenPago y descuento el importe
+            # xq se confirma la Orden de Pago
             lacuenta = PlanDeCuentas.objects.get(pk=request.POST["cuenta"])
             lacuenta.monto = lacuenta.monto - form.cleaned_data["monto"]
             lacuenta.save()

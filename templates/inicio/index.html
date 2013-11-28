@@ -12,6 +12,10 @@ Presupuestario HCD - Login de Acceso
 	{% if user.is_authenticated %}
 		Bienvenido {{user.username}}
 		<a href="/cerrar/">Cerrar Sesión</a>
+		<a href="/addproveedor/">Add Proveedor</a>
+		<a href="/addcuenta/">Add Cuenta</a>
+		<a href="/addreserva/">Add Reserva</a>
+		<a href="/addordenpago/">Add Orden de Pago</a>
 	{% else %}
 		<div class="container">
         	<div class="flat-form">
