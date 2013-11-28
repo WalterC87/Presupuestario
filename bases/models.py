@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 from django.db import models
+from django.core.validators import RegexValidator
 
 class Presupuestos(models.Model):
 	anio = models.CharField(max_length=4, verbose_name='Año')
@@ -24,12 +25,28 @@ class PlanDeCuentas(models.Model):
 
 class Proveedores(models.Model):
 	razonsocial = models.CharField(max_length=140, null=False, blank=False, verbose_name='R. Social')
-	cuit = models.CharField(max_length=11, null=False, blank=False, verbose_name='CUIT')
+	cuit = models.CharField(max_length=11,
+			validators = [
+                RegexValidator(
+                                '^[0-9]*$',
+                                 'Solo puede ingresar dígitos',
+                )
+            ],  null=False, blank=False, verbose_name='CUIT')
 	direccion = models.CharField(max_length=140, null=False, blank=False, verbose_name='Domicilio')
 	tel_fijo = models.CharField(max_length=15, verbose_name='Tel.')
 	tel_cel = models.CharField(max_length=15, verbose_name='Cel.')
 	email = models.EmailField(max_length=254, verbose_name='Email')
 	www = models.URLField(verbose_name='Sitio Web')
+	dni = models.CharField(
+                max_length = 8,
+                validators = [
+                        RegexValidator(
+                                '^[0-9]*$',
+                                 'Solo puede ingresar dígitos',
+                        )
+                ], 
+                blank = False)
+
 
 	def __unicode__(self):
 		return " %s - CUIT: %s " % (self.razonsocial, self.cuit)
