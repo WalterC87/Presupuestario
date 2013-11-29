@@ -18,6 +18,8 @@ class PlanDeCuentas(models.Model):
 	presupuesto = models.ForeignKey(Presupuestos, verbose_name='Presupuesto')
 	codigo = models.CharField(max_length=40, blank=False, null=False, verbose_name='Cod. Cuenta')
 	thumb = models.ImageField(upload_to='media/', verbose_name='Img.')
+	#monto_reservado = models.DecimalField(max_digits=15, decimal_places=2, verbose_name='Importe Total')
+	#monto_imputado = models.DecimalField(max_digits=15, decimal_places=2, verbose_name='Importe Total')
 
 	def __unicode__(self):
 		return " %s : %s " % (self.codigo, self.nombrecuenta)

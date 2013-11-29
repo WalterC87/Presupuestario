@@ -31,9 +31,12 @@ def addordenpago(request):
             orden.usuario = request.user
             #busco la cta afectada en la OrdenPago y descuento el importe
             # xq se confirma la Orden de Pago
-            lacuenta = PlanDeCuentas.objects.get(pk=request.POST["cuenta"])
-            lacuenta.monto = lacuenta.monto - form.cleaned_data["monto"]
-            lacuenta.save()
+            #lacuenta = PlanDeCuentas.objects.get(pk=request.POST["cuenta"])
+            #lacuenta.monto = lacuenta.monto - form.cleaned_data["monto"]
+            #lacuenta.save()
+            # esto no va, xq debe guardar siempre el monto de la cta
+            # el total reservado y asignado, se va sacar x cuenta en una consulta
+            # de las reservas y ordenes de pago
             orden.save()
             return HttpResponseRedirect("/")
     else:
