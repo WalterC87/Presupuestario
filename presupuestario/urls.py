@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from bases.views import login
-from circuitos.views import addreserva
+from circuitos.views import addreserva, addordenpago
 
 urlpatterns = patterns('',
 	# Examples:
@@ -24,4 +24,5 @@ urlpatterns = patterns('',
     url(r'^addproveedor/$', 'bases.views.addproveedor', name='addproveedor'),
     url(r'^addcuenta/$', 'bases.views.addcuenta', name='addcuenta'),
     url(r'^addreserva/$', 'circuitos.views.addreserva', name='addreserva'),
+    url(r'^addordenpago/$', 'circuitos.views.addordenpago', name='addordenpago'),
 )
